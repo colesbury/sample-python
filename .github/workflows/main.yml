@@ -21,9 +21,30 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
-          python --version
+          python -VVV
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+   test-suffix:
+      runs-on: ubuntu-latest
+      strategy:
+         fail-fast: false
+         matrix:
+           python-version:
+              - '3.13t'
+              - '3.13.0t'
+              - '3.14.0a4t'
+      steps:
+         - uses: actions/checkout@v4
+         - name: Set up Python ${{ matrix.python-version }}
+           uses: colesbury/setup-python@ft-wip
+           with:
+             python-version: ${{ matrix.python-version }}
+         - name: Install dependencies
+           run: |
+             python -VVV
+             python -m pip install --upgrade pip
+             pip install -r requirements.txt
     
    test-ranges:
     runs-on: ubuntu-latest
@@ -36,7 +57,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
-          python --version
+          python -VVV
           python -m pip install --upgrade pip
           pip install -r requirements.txt  
     
@@ -52,7 +73,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
-          python --version
+          python -VVV
           python -m pip install --upgrade pip
           pip install -r requirements.txt  
 
@@ -67,7 +88,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
-          python --version
+          python -VVV
           python -m pip install --upgrade pip
           pip install -r requirements.txt   
    
@@ -82,6 +103,6 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
-          python --version
+          python -VVV
           python -m pip install --upgrade pip
           pip install -r requirements.txt   
