@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
-          - '3.14.0-alpha.3'
+          - '3.14.0-alpha.4'
           - '3.13.0-beta.3'
           - '3.13.0-rc.2'   
     steps:
@@ -21,8 +21,9 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
+          python --version
           python -m pip install --upgrade pip
-          pip install -r requirements.txt   
+          pip install -r requirements.txt
     
    test-ranges:
     runs-on: ubuntu-latest
@@ -35,6 +36,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
+          python --version
           python -m pip install --upgrade pip
           pip install -r requirements.txt  
     
@@ -50,6 +52,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
+          python --version
           python -m pip install --upgrade pip
           pip install -r requirements.txt  
 
@@ -64,6 +67,7 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
+          python --version
           python -m pip install --upgrade pip
           pip install -r requirements.txt   
    
@@ -78,5 +82,6 @@ jobs:
           freethreaded: true
       - name: Install dependencies
         run: |
+          python --version
           python -m pip install --upgrade pip
           pip install -r requirements.txt   
